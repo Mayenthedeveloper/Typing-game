@@ -20,6 +20,31 @@ function App() {
 
   let randomWord = Math.floor(Math.random() * word.length);
 
+  const checkAnswer = () => {
+    if (inputValue.trim() === newWord) {
+      setCorrectResults((prevCorrect) => [...prevCorrect, newWord]);
+      setCountcorrect((prevCorrect) => prevCorrect + 1);
+      return;
+    }
+    setWrongResult((preWrong) => [...preWrong, inputValue]);
+  };
+
+  const handleInput = (e) => {
+    if (e.charCode == 13 && inputValue.trim() !== "") {
+      checkAnswer();
+      setNewWord(word[randomWord]);
+      setInputValue("");
+    }
+  };
+
+  const handleStart = () => {
+    setDisabled(!disabled);
+    setCorrectResults([]);
+    setWrongResult([]);
+    setCorrectResults(0);
+    setInputValue("");
+  };
+
   return (
     <div className="App">
       <Container>
@@ -30,13 +55,15 @@ function App() {
           disabled={disabled}
           time={time}
           animation={animation}
-        />
-        <Result
-          correctResults={correctResults}
-          wrongResult={wrongResult}
-          countCorrect={countCorrect}
+          handleInput={handleInput}
+          handleStart={handleStart}
         />
       </Container>
+      <Result
+        correctResults={correctResults}
+        wrongResult={wrongResult}
+        countCorrect={countCorrect}
+      />
     </div>
   );
 }

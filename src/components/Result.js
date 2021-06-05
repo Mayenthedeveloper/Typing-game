@@ -9,15 +9,20 @@ const Results = ({ correctResults, wrongResult, countCorrect }) => {
         <p>Correct Answers: {countCorrect}</p>
       </div>
       <div className="resultsContainer">
-        <div className="correctResults"></div>
-        {correctResults.map((correctWord, index) => (
-          <div key={index} className="row">
-            <p>{correctWord}</p>
-          </div>
-        ))}
-      </div>
-      <div className="wrongResults">
-        <p>Wrong</p>
+        <div className="correctResults">
+          {correctResults.map((correctWord, index) => (
+            <div key={index} className="row">
+              <p>{correctWord}</p>
+            </div>
+          ))}
+        </div>
+        <div className="wrongResults">
+          {wrongResult.map((wrongWord, index) => (
+            <div key={index} className="row">
+              <p>{wrongWord}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
