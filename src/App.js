@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Words from "./components/Words";
 import Container from "./components/Container";
 import Typeracer from "./components/Typeracer";
+import Result from "./components/Result";
 
 function App() {
   const [word, setWord] = useState(Words);
@@ -29,6 +30,11 @@ function App() {
           disabled={disabled}
           time={time}
           animation={animation}
+        />
+        <Result
+          correctResults={correctResults}
+          wrongResult={wrongResult}
+          countCorrect={countCorrect}
         />
       </Container>
     </div>
