@@ -41,7 +41,7 @@ function App() {
     setDisabled(!disabled);
     setCorrectResults([]);
     setWrongResult([]);
-    setCorrectResults(0);
+    setCountcorrect(0);
     setInputValue("");
   };
 
