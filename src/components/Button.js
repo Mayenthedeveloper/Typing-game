@@ -1,7 +1,9 @@
 import React from "react";
 
-const Button = ({ handleStart, diabled }) => {
-  return <button onClick={handleStart}>{diabled ? "Start" : "Restart"}</button>;
+const Button = ({ handleStart, disabled }) => {
+  return (
+    <button onClick={handleStart}>{disabled ? "Start" : "Restart"}</button>
+  );
 };
 
 export default Button;
